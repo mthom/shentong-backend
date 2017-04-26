@@ -9,9 +9,9 @@ import Control.Monad.Except
 import Control.Parallel
 import qualified Data.Text as T
 import Data.Monoid
-import Shentong.Primitives
-import Shentong.Types
-import Shentong.Utils
+import Shentong.Core.Primitives
+import Shentong.Core.Types
+import Shentong.Core.Utils
 
 applyWrapper :: KLValue -> [KLValue] -> KLContext Env KLValue
 applyWrapper (ApplC ac) vs = ac `pseq` vs `pseq` foldr pseq (apply ac vs) vs

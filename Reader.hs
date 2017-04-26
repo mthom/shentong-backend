@@ -9,10 +9,10 @@ module Shentong.Backend.Reader where
 import Control.Monad.Except
 import Control.Parallel
 import Shentong.Environment
-import Shentong.Primitives as Primitives
+import Shentong.Core.Primitives as Primitives
 import Shentong.Backend.Utils
-import Shentong.Types as Types
-import Shentong.Utils
+import Shentong.Core.Types as Types
+import Shentong.Core.Utils
 import Shentong.Wrap
 import Shentong.Backend.Toplevel
 import Shentong.Backend.Core
