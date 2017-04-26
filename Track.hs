@@ -4,23 +4,23 @@
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE ViewPatterns #-}
 
-module Shentong.Backend.Track where
+module Backend.Track where
 
 import Control.Monad.Except
 import Control.Parallel
-import Shentong.Environment
-import Shentong.Core.Primitives as Primitives
-import Shentong.Backend.Utils
-import Shentong.Core.Types as Types
-import Shentong.Core.Utils
-import Shentong.Wrap
-import Shentong.Backend.Toplevel
-import Shentong.Backend.Core
-import Shentong.Backend.Sys
-import Shentong.Backend.Sequent
-import Shentong.Backend.Yacc
-import Shentong.Backend.Reader
-import Shentong.Backend.Prolog
+import Environment
+import Core.Primitives as Primitives
+import Backend.Utils
+import Core.Types as Types
+import Core.Utils
+import Wrap
+import Backend.Toplevel
+import Backend.Core
+import Backend.Sys
+import Backend.Sequent
+import Backend.Yacc
+import Backend.Reader
+import Backend.Prolog
 
 {-
 Copyright (c) 2015, Mark Tarver

@@ -3,15 +3,15 @@
 {-# LANGUAGE Strict #-}
 {-# LANGUAGE StrictData #-}
 
-module Shentong.Backend.Utils where
+module Backend.Utils where
 
 import Control.Monad.Except
 import Control.Parallel
 import qualified Data.Text as T
 import Data.Monoid
-import Shentong.Core.Primitives
-import Shentong.Core.Types
-import Shentong.Core.Utils
+import Core.Primitives
+import Core.Types
+import Core.Utils
 
 applyWrapper :: KLValue -> [KLValue] -> KLContext Env KLValue
 applyWrapper (ApplC ac) vs = ac `pseq` vs `pseq` foldr pseq (apply ac vs) vs

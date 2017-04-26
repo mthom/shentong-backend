@@ -4,30 +4,30 @@
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE ViewPatterns #-}
 
-module Shentong.Backend.PortInfo where
+module Backend.PortInfo where
 
 import Control.Monad.Except
 import Control.Parallel
-import Shentong.Environment
-import Shentong.Core.Primitives as Primitives
-import Shentong.Backend.Utils
-import Shentong.Core.Types as Types
-import Shentong.Core.Utils
-import Shentong.Wrap
-import Shentong.Backend.Toplevel
-import Shentong.Backend.Core
-import Shentong.Backend.Sys
-import Shentong.Backend.Sequent
-import Shentong.Backend.Yacc
-import Shentong.Backend.Reader
-import Shentong.Backend.Prolog
-import Shentong.Backend.Track
-import Shentong.Backend.Load
-import Shentong.Backend.Writer
-import Shentong.Backend.Macros
-import Shentong.Backend.Declarations
-import Shentong.Backend.Types
-import Shentong.Backend.TStar
+import Environment
+import Core.Primitives as Primitives
+import Backend.Utils
+import Core.Types as Types
+import Core.Utils
+import Wrap
+import Backend.Toplevel
+import Backend.Core
+import Backend.Sys
+import Backend.Sequent
+import Backend.Yacc
+import Backend.Reader
+import Backend.Prolog
+import Backend.Track
+import Backend.Load
+import Backend.Writer
+import Backend.Macros
+import Backend.Declarations
+import Backend.Types
+import Backend.TStar
 
 {-
 Copyright (c) 2015, Mark Tarver
