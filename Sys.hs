@@ -1039,30 +1039,15 @@ kl_do (!kl_V2823) (!kl_V2824) = do return kl_V2824
 kl_elementP :: Core.Types.KLValue ->
                Core.Types.KLValue ->
                Core.Types.KLContext Core.Types.Env Core.Types.KLValue
-kl_elementP (!kl_V2836) (!kl_V2837) = do let !appl_0 = Atom Nil
-                                         !kl_if_1 <- appl_0 `pseq` (kl_V2837 `pseq` eq appl_0 kl_V2837)
-                                         case kl_if_1 of
-                                             Atom (B (True)) -> do return (Atom (B False))
-                                             Atom (B (False)) -> do let pat_cond_2 kl_V2837 kl_V2837h kl_V2837t = do return (Atom (B True))
-                                                                        pat_cond_3 kl_V2837 kl_V2837h kl_V2837t = do kl_V2836 `pseq` (kl_V2837t `pseq` kl_elementP kl_V2836 kl_V2837t)
-                                                                        pat_cond_4 = do do let !aw_5 = Core.Types.Atom (Core.Types.UnboundSym "shen.f_error")
-                                                                                           applyWrapper aw_5 [ApplC (wrapNamed "element?" kl_elementP)]
-                                                                     in case kl_V2837 of
-                                                                            !(kl_V2837@(Cons (!kl_V2837h)
-                                                                                             (!kl_V2837t))) | eqCore kl_V2837h kl_V2836 -> pat_cond_2 kl_V2837 kl_V2837h kl_V2837t
-                                                                            !(kl_V2837@(Cons (!kl_V2837h)
-                                                                                             (!kl_V2837t))) -> pat_cond_3 kl_V2837 kl_V2837h kl_V2837t
-                                                                            _ -> pat_cond_4
-                                             _ -> throwError "if: expected boolean"
+kl_elementP needle (Cons h t)
+  | eqCore h needle = return (Atom (B True))
+  | otherwise   = kl_elementP needle t
+kl_elementP _ _ = return (Atom (B False))
 
 kl_emptyP :: Core.Types.KLValue ->
              Core.Types.KLContext Core.Types.Env Core.Types.KLValue
-kl_emptyP (!kl_V2843) = do let !appl_0 = Atom Nil
-                           !kl_if_1 <- appl_0 `pseq` (kl_V2843 `pseq` eq appl_0 kl_V2843)
-                           case kl_if_1 of
-                               Atom (B (True)) -> do return (Atom (B True))
-                               Atom (B (False)) -> do do return (Atom (B False))
-                               _ -> throwError "if: expected boolean"
+kl_emptyP (Atom Nil) = return (Atom (B True))
+kl_emptyP _ = return (Atom (B False))
 
 kl_fix :: Core.Types.KLValue ->
           Core.Types.KLValue ->

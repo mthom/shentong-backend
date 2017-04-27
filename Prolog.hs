@@ -8,6 +8,7 @@ module Backend.Prolog where
 
 import Control.Monad.Except
 import Control.Parallel
+import Data.Vector
 import Environment
 import Core.Primitives as Primitives
 import Backend.Utils
@@ -5392,6 +5393,14 @@ kl_shen_mk_pvar (!kl_V1899) = do !appl_0 <- absvector (Core.Types.Atom (Core.Typ
 
 kl_shen_pvarP :: Core.Types.KLValue ->
                  Core.Types.KLContext Core.Types.Env Core.Types.KLValue
+kl_shen_pvarP (Vec v)
+  | eqCore (v ! 0) (Core.Types.Atom (Core.Types.UnboundSym "shen.pvar")) = return (Atom (B True))
+  | otherwise   = return (Atom (B False))
+kl_shen_pvarP _ = return (Atom (B False))
+
+{-
+kl_shen_pvarP :: Core.Types.KLValue ->
+                 Core.Types.KLContext Core.Types.Env Core.Types.KLValue
 kl_shen_pvarP (!kl_V1901) = do !kl_if_0 <- kl_V1901 `pseq` absvectorP kl_V1901
                                case kl_if_0 of
                                    Atom (B (True)) -> do let !appl_1 = ApplC (PL "thunk" (do return (Core.Types.Atom (Core.Types.UnboundSym "shen.not-pvar"))))
@@ -5403,6 +5412,7 @@ kl_shen_pvarP (!kl_V1901) = do !kl_if_0 <- kl_V1901 `pseq` absvectorP kl_V1901
                                                              _ -> throwError "if: expected boolean"
                                    Atom (B (False)) -> do do return (Atom (B False))
                                    _ -> throwError "if: expected boolean"
+-}
 
 kl_shen_bindv :: Core.Types.KLValue ->
                  Core.Types.KLValue ->
