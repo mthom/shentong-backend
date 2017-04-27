@@ -57,10 +57,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -}
 
 expr14 :: Types.KLContext Types.Env Types.KLValue
-expr14 = do (do klSet (Types.Atom (Types.UnboundSym "*os*")) (Types.Atom (Types.Str "Windows 7"))) `catchError` (\(!kl_E) -> do return (Types.Atom (Types.Str "E")))
+expr14 = do (do klSet (Types.Atom (Types.UnboundSym "*os*")) (Types.Atom (Types.Str "Arch Linux 4.10"))) `catchError` (\(!kl_E) -> do return (Types.Atom (Types.Str "E")))
             (do klSet (Types.Atom (Types.UnboundSym "*language*")) (Types.Atom (Types.Str "Haskell 2010"))) `catchError` (\(!kl_E) -> do return (Types.Atom (Types.Str "E")))
-            (do klSet (Types.Atom (Types.UnboundSym "*version*")) (Types.Atom (Types.Str "version 19.1"))) `catchError` (\(!kl_E) -> do return (Types.Atom (Types.Str "E")))
-            (do klSet (Types.Atom (Types.UnboundSym "*port*")) (Types.Atom (Types.Str "0.3.1"))) `catchError` (\(!kl_E) -> do return (Types.Atom (Types.Str "E")))
+            (do klSet (Types.Atom (Types.UnboundSym "*version*")) (Types.Atom (Types.Str "version 20.0"))) `catchError` (\(!kl_E) -> do return (Types.Atom (Types.Str "E")))
+            (do klSet (Types.Atom (Types.UnboundSym "*port*")) (Types.Atom (Types.Str "0.3.2"))) `catchError` (\(!kl_E) -> do return (Types.Atom (Types.Str "E")))
             (do klSet (Types.Atom (Types.UnboundSym "*porters*")) (Types.Atom (Types.Str "Mark Thom"))) `catchError` (\(!kl_E) -> do return (Types.Atom (Types.Str "E")))
             (do klSet (Types.Atom (Types.UnboundSym "*implementation*")) (Types.Atom (Types.Str "GHC 8.0.1"))) `catchError` (\(!kl_E) -> do return (Types.Atom (Types.Str "E")))
             (do klSet (Types.Atom (Types.UnboundSym "*release*")) (Types.Atom (Types.Str "0.1"))) `catchError` (\(!kl_E) -> do return (Types.Atom (Types.Str "E")))
